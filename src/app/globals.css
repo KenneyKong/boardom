@@ -17,5 +17,144 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.metal-gradient {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #989898 40%,
+    #6b6b6b 60%,
+    #989898 80%,
+    #ffffff 100%
+  );
+}
+
+.metal-radial {
+  background: radial-gradient(
+    circle at center,
+    rgba(255,255,255,0.8) 0%,
+    rgba(255,255,255,0.2) 50%,
+    rgba(0,0,0,0.2) 100%
+  );
+}
+
+.metal-shine {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #c0c0c0 20%,
+    #ffffff 30%,
+    #a0a0a0 40%,
+    #ffffff 50%,
+    #a0a0a0 60%,
+    #ffffff 70%,
+    #c0c0c0 80%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0px 2px 4px rgba(0, 0, 0, 0.5));
+  position: relative;
+  overflow: hidden;
+}
+
+.metal-shine::before {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background: linear-gradient(
+    45deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.8) 25%,
+    transparent 30%
+  );
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%);
+  }
+}
+
+.chrome-text {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #c0c0c0 25%,
+    #ffffff 50%,
+    #c0c0c0 75%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.chrome-logo {
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #e8e8e8 10%,
+    #c0c0c0 20%,
+    #ffffff 30%,
+    #e8e8e8 40%,
+    #c0c0c0 50%,
+    #ffffff 70%,
+    #e8e8e8 85%,
+    #ffffff 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
+  position: relative;
+  text-transform: uppercase;
+  font-size: 3.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.sidebar {
+  background: rgba(0, 0, 0, 0.85);
+  border: 1px solid rgba(255, 165, 0, 0.3);
+  padding: 1rem;
+  width: 250px;
+  min-height: calc(100vh - 100px);
+}
+
+.sidebar-title {
+  color: #ffd700;
+  font-family: 'Metal Mania', cursive;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 165, 0, 0.3);
+  padding-bottom: 0.5rem;
+}
+
+.user-list, .trending-list {
+  list-style: none;
+  padding: 0;
+}
+
+.user-item, .trending-item {
+  color: #c0c0c0;
+  padding: 0.5rem;
+  border-bottom: 1px solid rgba(255, 165, 0, 0.1);
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.user-item.online::before {
+  content: "●";
+  color: #00ff00;
+  margin-right: 0.5rem;
 }
